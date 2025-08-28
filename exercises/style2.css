@@ -1,0 +1,31 @@
+.laatikko {
+    Width: 200px;
+    Height: 200px;
+    margin: 10px;
+    padding: 10px;
+    display: inline-block; /* Asettaa elementit vierekkäin */
+    vertical-align: top; /* Estää pientä epätasaista kohdistusta */
+    text-align: center;
+}
+
+.punainen {
+    background-color: red;
+    border-color: green;
+    border-style: solid;
+    border-width: 10px;
+}
+
+.keltainen {
+    background-color: yellow;
+    border-color: red;
+    border-style: solid;
+    border-width: 10px;
+}
+
+.vihreä {
+    background-color: green;
+    border-color: yellow;
+    border-style: solid;
+    border-width: 10px;
+}
+strong { color: darkblue; }
