@@ -17,3 +17,23 @@ $tuntimaara = $_POST["tuntimaara"] ?? 0;
 $yhteispalkka = $tuntipalkka * $tuntimaara;
 echo "Yhteispalkka: " . $yhteispalkka;
 ?>
+<?php
+// Haetaan lomakkeen tiedot
+$tuntipalkka = $_POST["tuntipalkka"] ?? 0;
+$tuntimaara = $_POST["tuntimaara"] ?? 0;
+$viikonloppulisa = $_POST["viikonloppulisa"] ?? 0;
+$viikonlopputunnit = $_POST["viikonlopputunnit"] ?? 0;
+
+// Lasketaan peruspalkka
+$yhteispalkka = $tuntipalkka * $tuntimaara;
+
+// Lasketaan viikonloppulisät
+$viikonloppulisat = $viikonloppulisa * $viikonlopputunnit;
+
+// Lasketaan kokonaispalkka lisien kanssa
+$kokonaispalkka = $yhteispalkka + $viikonloppulisat;
+
+// Tulostetaan tulokset
+echo "Yhteispalkka ilman viikonloppulisiä: " . $yhteispalkka . " €<br>";
+echo "Yhteispalkka viikonloppulisien kanssa: " . $kokonaispalkka . " €";
+?>
