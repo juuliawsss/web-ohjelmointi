@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Kirjautuminen onnistui! Ohjataan palkkalaskuriin...";
 
         // Ohjaa käyttäjän palkkalaskuriin 2 sekunnin kuluttua
-        echo '<meta http-equiv="refresh" content="2;url=palkkalaskuri.php">';
+        echo '<meta http-equiv="refresh" content="2;url=palkkalaskuri_kirjautuminen.html">';
         exit();
     } else {
         // Kirjautuminen epäonnistui
