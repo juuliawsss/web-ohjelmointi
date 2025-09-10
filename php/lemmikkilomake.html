@@ -69,4 +69,23 @@
     </fieldset>
 
     <label for="vari">Lemmikin väri:</label>
-    <span class="small-note"
+    <span class="small-note">Valitse väri: <input type="color" id="vari" name="vari" value="#f4b042" class="color-box"></span>
+
+    <fieldset>
+      <legend>Lemmikin varusteet:</legend>
+      <label for="varusteet">Varusteet:</label>
+      <select id="varusteet" name="varusteet[]" multiple size="4">
+        <option value="panta" selected>Panta</option>
+        <option value="hihna" selected>Hihna</option>
+        <option value="kuljetuslaatikko">Kuljetuslaatikko</option>
+        <option value="lelut">Lelut</option>
+      </select>
+    </fieldset>
+
+    <div class="buttons">
+      <input type="submit" value="Lähetä">
+      <input type="reset" value="Resetoi">
+    </div>
+  </form>
+</body>
+</html>
