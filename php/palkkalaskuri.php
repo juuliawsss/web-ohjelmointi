@@ -17,6 +17,7 @@ $tuntimaara = $_POST["tuntimaara"] ?? 0;
 $yhteispalkka = $tuntipalkka * $tuntimaara;
 echo "Yhteispalkka: " . $yhteispalkka;
 ?>
+
 <?php
 // Haetaan lomakkeen tiedot
 $tuntipalkka = $_POST["tuntipalkka"] ?? 0;
