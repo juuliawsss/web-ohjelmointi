@@ -11,8 +11,6 @@
     </form>
   </body>
 </html>
-Siirrä palkkalaskuri.php tiedosto palvelimelle omaan php-kansioosi
-Luo toinen uusi palkka.php tiedosto ja kopioi siihen alla oleva koodi:
 <?php
 $tuntipalkka = $_POST["tuntipalkka"] ?? 0;
 $tuntimaara = $_POST["tuntimaara"] ?? 0;
