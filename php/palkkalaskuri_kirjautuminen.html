@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Palkkalaskuri - sisäänkirjautuminen</title>
+</head>
+<body>
+
+<?php
+// Tarkistetaan onko lomake lähetetty
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Otetaan vastaan lomakkeen tiedot
+    $kayttajatunnus = $_POST["kayttajatunnus"];
+    $salasana = $_POST["salasana"];
+
+    // Tarkistetaan käyttäjätunnus ja salasana
+    if ($kayttajatunnus == "admin" && $salasana == "1234") {
+        // Kirjautuminen onnistui
+        echo "Kirjautuminen onnistui! Ohjataan palkkalaskuriin...";
+
+        // Ohjaa käyttäjän palkkalaskuriin 2 sekunnin kuluttua
+        echo '<meta http-equiv="refresh" content="2;url=palkkalaskuri.php">';
+        exit();
+    } else {
+        // Kirjautuminen epäonnistui
+        echo "<p style='color:red;'>Virheellinen käyttäjätunnus tai salasana!</p>";
+    }
+}
+?>
+
+<!-- Lomake -->
+<form method="post" action="">
+    <label for="kayttajatunnus">Käyttäjätunnus:</label>
+    <input type="text" id="kayttajatunnus" name="kayttajatunnus" required>
+    <br><br>
+    <label for="salasana">Salasana:</label>
+    <input type="password" id="salasana" name="salasana" required>
+    <br><br>
+    <input type="submit" value="Kirjaudu">
+</form>
+
+</body>
+</html>
+
