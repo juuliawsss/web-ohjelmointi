@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8" />
+  <title>HTML lomakeharjoitus</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body{
+      font-family: Georgia, "Times New Roman", Times, serif;
+      padding: 24px;
+    }
+    h1{
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    label{ display:block; margin-top:10px; }
+    .small-note{ margin-top:4px; margin-bottom:8px; }
+    fieldset{
+      border: none;
+      padding: 0;
+      margin: 12px 0;
+    }
+    .radio-list, .checkbox-list{
+      margin-left: 8px;
+    }
+    .color-box{
+      vertical-align: middle;
+      margin-left: 8px;
+    }
+    select[multiple]{
+      width: 180px;
+      height: 90px;
+    }
+    .buttons{ margin-top:12px; }
+    input[type="submit"], input[type="reset"]{
+      padding:6px 10px;
+      margin-right:8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>HTML lomakeharjoitus</h1>
+
+  <form action="#" method="post" autocomplete="off">
+    <label for="nimi">Lemmikin nimi:</label>
+    <input type="text" id="nimi" name="nimi" value="Karvinen" />
+
+    <label for="syntyma">Lemmikin syntymäaika</label>
+    <input type="date" id="syntyma" name="syntyma" value="1981-01-04" />
+
+    <fieldset>
+      <legend>Lemmikin eläinlaji:</legend>
+      <div class="radio-list">
+        <label><input type="radio" name="laji" value="kissa" checked> Kissa</label>
+        <label><input type="radio" name="laji" value="koira"> Koira</label>
+        <label><input type="radio" name="laji" value="hamsteri"> Hamsteri</label>
+        <label><input type="radio" name="laji" value="kaarme"> Käärme</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Lemmikin lempiasiat:</legend>
+      <div class="checkbox-list">
+        <label><input type="checkbox" name="lempi" value="nukkuminen" checked> Nukkuminen</label>
+        <label><input type="checkbox" name="lempi" value="ruoka" checked> Ruoka</label>
+        <label><input type="checkbox" name="lempi" value="leikkiminen"> Leikkiminen</label>
+        <label><input type="checkbox" name="lempi" value="juokseminen"> Juokseminen</label>
+      </div>
+    </fieldset>
+
+    <label for="vari">Lemmikin väri:</label>
+    <span class="small-note"
