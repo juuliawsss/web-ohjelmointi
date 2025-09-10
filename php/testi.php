@@ -14,5 +14,17 @@
     }
     echo "</ul>";
     ?>
+
+    <?php
+    // Uusi PHP-osio
+    $tervehdys = "Hei maailma!"; // keksitty tervehdys
+    $kerrat = 5;                 // montako kertaa toistetaan
+    $laskuri = 0;                // lisämuuttuja toistoa varten
+
+    while ($laskuri < $kerrat) {
+        echo "<p>" . $tervehdys . "</p>";
+        $laskuri++;
+    }
+    ?>
   </body>
 </html>
