@@ -19,14 +19,14 @@
             display: block;
             padding: 10px 20px;
             text-decoration: none;
-            color: black;
+            color: white;
         }
         nav ul li a:hover {
             background-color: #fffefeff;
         }
         /* Aktiivisen linkin korostus */
         nav ul li.active a {
-            background-color: #385af0ff;
+            background-color: #030303ff;
             color: black;
         }
     </style>
