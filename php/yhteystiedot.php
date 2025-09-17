@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             display: flex;
-            background-color: #ffffffff;
+            background-color: #f0f0f0;
         }
         nav ul li {
             margin: 0;
@@ -22,11 +22,11 @@
             color: black;
         }
         nav ul li a:hover {
-            background-color: #fffefeff;
+            background-color: #ddd;
         }
         /* Aktiivisen linkin korostus */
         nav ul li.active a {
-            background-color: #fdfbfbff;
+            background-color: #007bff;
             color: white;
         }
     </style>
@@ -36,8 +36,9 @@
         <?php include 'navigaatio.php'; ?>
     </header>
     <main>
-        <h1>Yhteystiedot</h1>
+        <h1>Ota yhteyttä</h1>
         <p>Tältä sivulta löydät yrityksemme yhteystiedot ja palautelomakkeen.</p>
     </main>
 </body>
 </html>
+

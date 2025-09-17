@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             display: flex;
-            background-color: #f8f8f8ff;
+            background-color: #f0f0f0;
         }
         nav ul li {
             margin: 0;
@@ -22,11 +22,11 @@
             color: black;
         }
         nav ul li a:hover {
-            background-color: #fffdfdff;
+            background-color: #ddd;
         }
         /* Aktiivisen linkin korostus */
         nav ul li.active a {
-            background-color: #ffffffff;
+            background-color: #007bff;
             color: white;
         }
     </style>
