@@ -37,7 +37,7 @@
     </header>
     <main>
         <h1>Tämä on tuotesivu</h1>
-        <p>Täältä löydät kaikki ajankohtaiset tuotteemme ja palvelumme.</p>
+        <p>Tämä on dynaamisella navigaatiolla varustetun sivustomme tuotesivu.</p>
     </main>
 </body>
 </html>
