@@ -3,41 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Tuotteet - Meidän Firma</title>
-    <style>
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            background-color: #ffffffff;
-        }
-        nav ul li {
-            margin: 0;
-            padding: 0;
-        }
-        nav ul li a {
-            display: block;
-            padding: 10px 20px;
-            text-decoration: none;
-            color: black;
-        }
-        nav ul li a:hover {
-            background-color: #fffdfdff;
-        }
-        /* Aktiivisen linkin korostus */
-        nav ul li.active a {
-            background-color: #007bff;
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="../exercises/style.css">
 </head>
 <body>
     <header>
         <?php include 'navigaatio.php'; ?>
     </header>
     <main>
-        <h1>Tämä on tuotesivu</h1>
+        <h1>Tämä on tuotesivu.</h1>
         <p>Tämä on dynaamisella navigaatiolla varustetun sivustomme tuotesivu.</p>
+    </main>
+    <footer>
+        <p>&copy; 2025 Meidän Firma</p>
+    </footer>
     </main>
 </body>
 </html>
