@@ -1,18 +1,15 @@
 <?php
-// Näytetään virheet kehitystä varten
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Alustetaan muuttujat
 $name = $email = $date = $time = $people = $requests = "";
 $nameErr = $emailErr = $dateErr = $timeErr = $peopleErr = "";
 $successMessage = "";
 $specials = [];
 
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_GET['page']) && $_GET['page'] === 'varaus') {
+if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_GET['page'] ?? '') === 'varaus') {
     $valid = true;
 
-    // Nimi
     if (empty($_POST["name"])) {
         $nameErr = "Nimi on pakollinen";
         $valid = false;
@@ -20,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_GET['page']) && $_GET['page
         $name = htmlspecialchars(trim($_POST["name"]));
     }
 
-    // Sähköposti
     if (empty($_POST["email"])) {
         $emailErr = "Sähköposti on pakollinen";
         $valid = false;
@@ -31,7 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_GET['page']) && $_GET['page
         $email = htmlspecialchars(trim($_POST["email"]));
     }
 
-    // Päivämäärä
     if (empty($_POST["date"])) {
         $dateErr = "Päivämäärä on pakollinen";
         $valid = false;
@@ -39,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_GET['page']) && $_GET['page
         $date = $_POST["date"];
     }
 
-    // Kellonaika
     if (empty($_POST["time"])) {
         $timeErr = "Kellonaika on pakollinen";
         $valid = false;
@@ -47,7 +41,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_GET['page']) && $_GET['page
         $time = $_POST["time"];
     }
 
-    // Henkilömäärä
     if (empty($_POST["people"]) || !is_numeric($_POST["people"]) || (int)$_POST["people"] < 1) {
         $peopleErr = "Anna kelvollinen henkilömäärä";
         $valid = false;
@@ -55,24 +48,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_GET['page']) && $_GET['page
         $people = intval($_POST["people"]);
     }
 
-    // Erikoisruokavaliot
-    $specials = isset($_POST["specials"]) ? $_POST["specials"] : [];
-
-    // Erityistoiveet
-    $requests = htmlspecialchars(trim($_POST["requests"]));
+    $specials = $_POST["specials"] ?? [];
+    $requests = htmlspecialchars(trim($_POST["requests"] ?? ""));
 
     if ($valid) {
         $successMessage = "Kiitos varauksestasi, $name! Otamme sinuun pian yhteyttä sähköpostitse.";
-        // Tyhjennä lomake
         $name = $email = $date = $time = $people = $requests = "";
         $specials = [];
     }
 }
 
-// Nykyinen sivu (page)
 $page = $_GET['page'] ?? 'index';
 
-// Valikon tulostus
 function renderMenu($currentPage) {
     $menuItems = [
         "index" => "Etusivu",
@@ -80,10 +67,10 @@ function renderMenu($currentPage) {
         "varaus" => "Pöytävaraus"
     ];
 
-    echo '<nav><ul style="list-style:none; padding:0; text-align:center; background:#f1a07a;">';
+    echo '<nav><ul class="menu">';
     foreach ($menuItems as $key => $label) {
-        $style = ($currentPage === $key) ? 'text-decoration: underline;' : '';
-        echo "<li style='display:inline; margin: 0 15px;'><a href='?page=$key' style='color:white; font-weight:bold; $style'>$label</a></li>";
+        $class = ($currentPage === $key) ? 'active' : '';
+        echo "<li><a href='?page=$key' class='$class'>$label</a></li>";
     }
     echo '</ul></nav>';
 }
@@ -98,23 +85,45 @@ function renderMenu($currentPage) {
         body {
             font-family: Arial, sans-serif;
             background: #fff8f0;
+            margin: 0;
             color: #333;
-            margin: 0; padding: 0;
         }
         header, footer {
-            background-color: #c94f3e;
+            background: #c94f3e;
             color: white;
-            padding: 10px 20px;
             text-align: center;
+            padding: 15px;
         }
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 20px auto;
-            padding: 0 20px;
+            padding: 0 15px;
+        }
+        .menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background: #f1a07a;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .menu li {
+            margin: 0;
+        }
+        .menu a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: inline-block;
+        }
+        .menu a.active, .menu a:hover {
+            text-decoration: underline;
         }
         form label {
             display: block;
-            margin-top: 10px;
+            margin-top: 15px;
             font-weight: bold;
         }
         form input[type="text"],
@@ -125,34 +134,44 @@ function renderMenu($currentPage) {
         form textarea {
             width: 100%;
             padding: 8px;
-            margin-top: 4px;
+            margin-top: 5px;
             box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
         }
         form input[type="submit"] {
-            margin-top: 15px;
-            padding: 10px 20px;
-            background-color: #c94f3e;
+            margin-top: 20px;
+            background: #c94f3e;
             color: white;
             border: none;
+            padding: 12px 25px;
             cursor: pointer;
+            border-radius: 4px;
+            font-size: 1rem;
         }
         form input[type="submit"]:hover {
-            background-color: #a63b2a;
+            background: #a63b2a;
         }
         .message {
             background-color: #dff0d8;
             color: #3c763d;
-            padding: 10px;
+            padding: 12px;
             margin-top: 20px;
             border-radius: 5px;
         }
         .error {
             color: red;
-            font-size: 0.9em;
+            font-size: 0.9rem;
+        }
+        .checkbox-group label {
+            font-weight: normal;
+            margin-right: 10px;
         }
     </style>
 </head>
 <body>
+
 <header>
     <h1>Ravintola Aroma</h1>
     <?php renderMenu($page); ?>
@@ -215,14 +234,16 @@ function renderMenu($currentPage) {
             <span class="error"><?= $peopleErr ?></span>
 
             <label>Erikoisruokavaliot</label>
-            <input type="checkbox" id="gluten" name="specials[]" value="gluteeniton" <?= in_array('gluteeniton', $specials) ? 'checked' : '' ?>>
-            <label for="gluten">Gluteeniton</label><br>
+            <div class="checkbox-group">
+                <input type="checkbox" id="gluten" name="specials[]" value="gluteeniton" <?= in_array('gluteeniton', $specials) ? 'checked' : '' ?>>
+                <label for="gluten">Gluteeniton</label>
 
-            <input type="checkbox" id="vega" name="specials[]" value="vegaaninen" <?= in_array('vegaaninen', $specials) ? 'checked' : '' ?>>
-            <label for="vega">Vegaaninen</label><br>
+                <input type="checkbox" id="vega" name="specials[]" value="vegaaninen" <?= in_array('vegaaninen', $specials) ? 'checked' : '' ?>>
+                <label for="vega">Vegaaninen</label>
 
-            <input type="checkbox" id="lakto" name="specials[]" value="laktoositon" <?= in_array('laktoositon', $specials) ? 'checked' : '' ?>>
-            <label for="lakto">Laktoositon</label><br>
+                <input type="checkbox" id="lakto" name="specials[]" value="laktoositon" <?= in_array('laktoositon', $specials) ? 'checked' : '' ?>>
+                <label for="lakto">Laktoositon</label>
+            </div>
 
             <label for="requests">Erityistoiveet</label>
             <textarea id="requests" name="requests" rows="4"><?= htmlspecialchars($requests) ?></textarea>
@@ -238,6 +259,7 @@ function renderMenu($currentPage) {
 <footer>
     <p>&copy; 2025 Ravintola Aroma</p>
 </footer>
+
 </body>
 </html>
 
