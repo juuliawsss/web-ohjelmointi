@@ -36,7 +36,7 @@
         <?php include 'navigaatio.php'; ?>
     </header>
     <main>
-        <h1>Tuotteemme</h1>
+        <h1>Tämä on tuotesivu</h1>
         <p>Täältä löydät kaikki ajankohtaiset tuotteemme ja palvelumme.</p>
     </main>
 </body>
