@@ -2,7 +2,7 @@
 <html lang="fi">
 <head>
     <meta charset="UTF-8">
-    <title>Yhteystiedot - Meidän Firma</title>
+    <title>Ota yhteyttä - Meidän Firma</title>
     <style>
         nav ul {
             list-style-type: none;
@@ -36,7 +36,7 @@
         <?php include 'navigaatio.php'; ?>
     </header>
     <main>
-        <h1>Ota yhteyttä</h1>
+        <h1>Yhteystiedot</h1>
         <p>Tältä sivulta löydät yrityksemme yhteystiedot ja palautelomakkeen.</p>
     </main>
 </body>
