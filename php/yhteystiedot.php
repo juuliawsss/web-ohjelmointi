@@ -26,8 +26,8 @@
         }
         /* Aktiivisen linkin korostus */
         nav ul li.active a {
-            background-color: #030303ff;
-            color: white;
+            background-color: #385af0ff;
+            color: black;
         }
     </style>
 </head>
