@@ -1,4 +1,8 @@
 <?php
+// Näytetään PHP-virheet kehitystä varten
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 // Lomake käsittely
 $name = $email = $date = $time = $people = $requests = "";
 $nameErr = $emailErr = $dateErr = $timeErr = $peopleErr = "";
@@ -59,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($valid) {
         $successMessage = "Kiitos varauksestasi, $name! Otamme sinuun pian yhteyttä sähköpostitse.";
-        // Tyhjennä kentät
+        // Tyhjennä kentät, jotta lomake tyhjenee onnistumisen jälkeen
         $name = $email = $date = $time = $people = $requests = "";
         $specials = [];
     }
@@ -215,23 +219,23 @@ function renderMenu($currentPage) {
 
     <form method="post" action="?page=varaus">
         <label for="name">Nimi *</label>
-        <input type="text" id="name" name="name" value="<?= $name ?>">
+        <input type="text" id="name" name="name" value="<?= htmlspecialchars($name) ?>">
         <span class="error"><?= $nameErr ?></span>
 
         <label for="email">Sähköposti *</label>
-        <input type="email" id="email" name="email" value="<?= $email ?>">
+        <input type="email" id="email" name="email" value="<?= htmlspecialchars($email) ?>">
         <span class="error"><?= $emailErr ?></span>
 
         <label for="date">Päivämäärä *</label>
-        <input type="date" id="date" name="date" value="<?= $date ?>">
+        <input type="date" id="date" name="date" value="<?= htmlspecialchars($date) ?>">
         <span class="error"><?= $dateErr ?></span>
 
         <label for="time">Kellonaika *</label>
-        <input type="time" id="time" name="time" value="<?= $time ?>">
+        <input type="time" id="time" name="time" value="<?= htmlspecialchars($time) ?>">
         <span class="error"><?= $timeErr ?></span>
 
         <label for="people">Henkilömäärä *</label>
-        <input type="number" id="people" name="people" min="1" value="<?= $people ?>">
+        <input type="number" id="people" name="people" min="1" value="<?= htmlspecialchars($people) ?>">
         <span class="error"><?= $peopleErr ?></span>
 
         <label>Erikoisruokavaliot</label>
@@ -245,7 +249,7 @@ function renderMenu($currentPage) {
         <label for="lakto">Laktoositon</label><br>
 
         <label for="requests">Erityistoiveet</label>
-        <textarea id="requests" name="requests" rows="4"><?= $requests ?></textarea>
+        <textarea id="requests" name="requests" rows="4"><?= htmlspecialchars($requests) ?></textarea>
 
         <input type="submit" value="Varaa pöytä">
     </form>
@@ -263,4 +267,6 @@ function renderMenu($currentPage) {
 </footer>
 </body>
 </html>
+
+
 
