@@ -19,7 +19,7 @@
             display: block;
             padding: 10px 20px;
             text-decoration: none;
-            color: black;
+            color: white;
         }
         nav ul li a:hover {
             background-color: #fffdfdff;
@@ -27,7 +27,7 @@
         /* Aktiivisen linkin korostus */
         nav ul li.active a {
             background-color: #007bff;
-            color: white;
+            color: black;
         }
     </style>
 </head>
