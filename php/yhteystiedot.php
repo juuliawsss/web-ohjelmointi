@@ -22,11 +22,11 @@
             color: black;
         }
         nav ul li a:hover {
-            background-color: #1d1c1cff;
+            background-color: #fffefeff;
         }
         /* Aktiivisen linkin korostus */
         nav ul li.active a {
-            background-color: #007bff;
+            background-color: #030303ff;
             color: white;
         }
     </style>
