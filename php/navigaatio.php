@@ -3,7 +3,7 @@
 $sivut = [
     'Etusivu' => 'etusivu.php',
     'Tuotteet' => 'tuotteet.php',
-    'Yhteystiedot' => 'yhteystiedot.php'
+    'Ota yhteyttä' => 'yhteystiedot.php'
 ];
 
 // Haetaan nykyisen sivun tiedostonimi
