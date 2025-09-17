@@ -9,8 +9,14 @@
 <header>
     <h1>Ravintola Aroma</h1>
     <?php
-        include 'menu.php';
-        renderMenu(basename($_SERVER['PHP_SELF']));
+
+    $sivut = [
+        'index' => 'Etusivu',
+        'ruokalista' => 'Ruokalista',
+        'varaus' => 'Pöytävaraus'
+    ];
+    include 'menu.php';
+    renderMenu(basename($_SERVER['PHP_SELF']));
     ?>
 </header>
 <div class="container">
