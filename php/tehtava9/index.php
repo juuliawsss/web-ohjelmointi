@@ -83,7 +83,7 @@ function renderMenu($currentPage) {
     echo '<nav><ul>';
     foreach ($menuItems as $key => $name) {
         $style = ($currentPage === $key) ? 'style="text-decoration: underline;"' : '';
-        echo "<li><a href='?page=$key' $style>$name</a></li>";
+        echo "<li style='margin-right: 15px; display: inline;'><a href='?page=$key' $style>$name</a></li>";
     }
     echo '</ul></nav>';
 }
@@ -112,10 +112,10 @@ function renderMenu($currentPage) {
             padding: 0;
             background-color: #f1a07a;
             margin: 0;
-            display: flex;
-            justify-content: center;
+            text-align: center;
         }
         nav ul li {
+            display: inline;
             margin: 0 15px;
         }
         nav ul li a {
@@ -245,28 +245,8 @@ function renderMenu($currentPage) {
         <input type="checkbox" id="vega" name="specials[]" value="vegaaninen" <?= (in_array('vegaaninen', $specials)) ? 'checked' : '' ?>>
         <label for="vega">Vegaaninen</label><br>
 
-        <input type="checkbox" id="lakto" name="specials[]" value="laktoositon" <?= (in_array('laktoositon', $specials)) ? 'checked' : '' ?>>
-        <label for="lakto">Laktoositon</label><br>
+        <input type="checkbox" id="lakto
 
-        <label for="requests">Erityistoiveet</label>
-        <textarea id="requests" name="requests" rows="4"><?= htmlspecialchars($requests) ?></textarea>
-
-        <input type="submit" value="Varaa pöytä">
-    </form>
-
-<?php else: ?>
-
-    <h2>Sivua ei löytynyt</h2>
-
-<?php endif; ?>
-
-</div>
-
-<footer>
-    <p>&copy; 2025 Ravintola Aroma</p>
-</footer>
-</body>
-</html>
 
 
 
