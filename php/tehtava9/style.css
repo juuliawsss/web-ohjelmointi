@@ -1,16 +1,20 @@
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
     padding: 0;
     background: #fff8f0;
     color: #333;
 }
 
+
 header, footer {
     background-color: #c94f3e;
     color: white;
-    padding: 10px 20px;
+    padding: 18px 20px;
     text-align: center;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(201,79,62,0.08);
 }
 
 nav ul {
@@ -36,10 +40,66 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
+
 .container {
     max-width: 900px;
-    margin: 20px auto;
+    margin: 30px auto;
     padding: 0 20px;
+}
+.menu-section {
+    margin-bottom: 32px;
+}
+.menu-category {
+    font-size: 1.4rem;
+    color: #c94f3e;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    border-bottom: 2px solid #f1a07a;
+    display: inline-block;
+    padding-bottom: 3px;
+    letter-spacing: 0.5px;
+}
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+.menu-item-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(201,79,62,0.10);
+    padding: 20px 22px 16px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-left: 5px solid #f1a07a;
+    transition: box-shadow 0.2s;
+}
+.menu-item-card:hover {
+    box-shadow: 0 4px 18px rgba(201,79,62,0.18);
+}
+.menu-item-title {
+    font-weight: bold;
+    font-size: 1.13rem;
+    margin-bottom: 6px;
+    color: #a63b2a;
+}
+.menu-item-desc {
+    font-size: 0.98rem;
+    color: #666;
+    margin-bottom: 6px;
+}
+.menu-item-price {
+    color: #c94f3e;
+    font-weight: bold;
+    font-size: 1.07rem;
+    margin-top: 2px;
+    align-self: flex-end;
+}
+@media (max-width: 700px) {
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 form label {
