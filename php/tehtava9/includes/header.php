@@ -16,14 +16,10 @@
             <li><a href="varaus.php">Pöytävaraus</a></li>
         </ul>
     </nav>
-    <div style="display: flex; justify-content: center; gap: 24px; margin-top: 18px;">
-        <a href="https://unsplash.com/photos/restaurant-food" target="_blank" style="text-align:center;">
-            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=facearea&w=120&h=80" alt="Ravintola-annos" style="border-radius:8px; box-shadow:0 2px 8px #ccc; width:120px; height:80px; object-fit:cover;">
-            <div style="font-size:0.95em; color:#fff8f0;">Esimerkkikuva 1</div>
-        </a>
-        <a href="https://unsplash.com/photos/restaurant-interior" target="_blank" style="text-align:center;">
-            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=facearea&w=120&h=80" alt="Ravintolasali" style="border-radius:8px; box-shadow:0 2px 8px #ccc; width:120px; height:80px; object-fit:cover;">
-            <div style="font-size:0.95em; color:#fff8f0;">Esimerkkikuva 2</div>
+    <div style="display: flex; flex-direction: column; align-items: center; margin-top: 18px; gap: 12px;">
+        <a href="http://punavuorigourmet.blogspot.com/2017/12/olut-ja-ruokamenu-suomi-100.html" target="_blank" style="text-align:center; margin-bottom:8px;">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggDVecNPE5OuztdDrBigTsTzG2ECod-qnkgdOq8Zz-gCTwtkx-rtvw9TXPMij-TOql1k8wyDjv1prtnhFIJIu31EvdL5r-4OqjbPlYV-elvPJSkn468vDPC7YJ45BS-T46Vvewo13IDG-r/s1600/PB260123.JPG" alt="Suomalainen ruokamenu" style="border-radius:8px; box-shadow:0 2px 8px #ccc; width:90px; height:120px; object-fit:cover;">
+            <div style="font-size:0.95em; color:#fff8f0;">Suomalainen ruokamenu</div>
         </a>
     </div>
 </header>
