@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 5 – Auto-olio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .autobox {
+            padding: 15px;
+            border: 1px solid #ccc;
+            width: 250px;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Auton tiedot</h1>
+
+<div class="autobox" id="autotiedot"></div>
+
+<script>
+    // Luodaan auto-olio
+    let auto = {
+        merkki: "Toyota",
+        malli: "Corolla",
+        vuosimalli: 2015,
+        kaynnissa: false,
+
+        // Metodi joka käynnistää auton
+        kaynnista: function() {
+            this.kaynnissa = true;
+            console.log("Auto käynnistyi");
+        }
+    };
+
+    // Kutsutaan metodin testausta varten
+    auto.kaynnista();
+
+    // Tulostetaan auton tiedot sivulle
+    let laatikko = document.getElementById("autotiedot");
+    laatikko.innerHTML = `
+        <p><strong>Merkki:</strong> ${auto.merkki}</p>
+        <p><strong>Malli:</strong> ${auto.malli}</p>
+        <p><strong>Vuosimalli:</strong> ${auto.vuosimalli}</p>
+        <p><strong>Käynnissä:</strong> ${auto.kaynnissa ? "Kyllä" : "Ei"}</p>
+    `;
+</script>
+
+</body>
+</html>
