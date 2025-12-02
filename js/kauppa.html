@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Pieni verkkokauppa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .tuote-box {
+            border: 1px solid #ccc;
+            padding: 15px;
+            width: 250px;
+            border-radius: 10px;
+            background: #f9f9f9;
+        }
+        #kori {
+            margin-top: 30px;
+            padding: 15px;
+            border: 1px solid #aaa;
+            background: #f2f2f2;
+            width: 300px;
+            border-radius: 10px;
+        }
+        .kori-rivi {
+            margin: 3px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Tervetuloa kauppaan</h1>
+
+<div class="tuote-box">
+    <h3 id="tuote-nimi"></h3>
+    <p>Hinta: <span id="tuote-hinta"></span> €</p>
+
+    <label>Määrä:</label>
+    <input type="number" id="maara" min="1" value="1">
+
+    <button onclick="lisaaKoriin()">Lisää koriin</button>
+</div>
+
+<div id="kori">
+    <h3>Ostoskori</h3>
+    <div id="kori-sisalto"></div>
+    <p><strong>Loppusumma:</strong> <span id="loppusumma">0.00</span> €</p>
+</div>
+
+<script>
+    // 1. Tuote-olio
+    const tuote = {
+        nimi: "Kahvipaketti",
+        hinta: 4.90
+    };
+
+    // Näytetään tuote sivulla
+    document.getElementById("tuote-nimi").innerText = tuote.nimi;
+    document.getElementById("tuote-hinta").innerText = tuote.hinta.toFixed(2);
+
+    // 2. Ostoskori-taulukko
+    let ostoskori = [];
+
+    // 3. Lisää koriin -logiikka
+    function lisaaKoriin() {
+        const maara = Number(document.getElementById("maara").value);
+
+        if (maara <= 0) return;
+
+        const summa = tuote.hinta * maara;
+
+        // Lisää ostoskoriin oliona
+        ostoskori.push({
+            nimi: tuote.nimi,
+            kpl: maara,
+            rivisumma: summa
+        });
+
+        paivitaKori();
+    }
+
+    // 4. Päivitä ostoskorin näkymä
+    function paivitaKori() {
+        const koriDiv = document.getElementById("kori-sisalto");
+        let html = "";
+        let loppusumma = 0;
+
+        ostoskori.forEach(item => {
+            html += `<div class="kori-rivi">${item.nimi} (${item.kpl} kpl) – ${item.rivisumma.toFixed(2)} €</div>`;
+            loppusumma += item.rivisumma;
+        });
+
+        koriDiv.innerHTML = html;
+        document.getElementById("loppusumma").innerText = loppusumma.toFixed(2);
+    }
+</script>
+
+</body>
+</html>
