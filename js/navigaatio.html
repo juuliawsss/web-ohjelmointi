@@ -6,7 +6,6 @@
     <style>
         body { font-family: sans-serif; padding: 20px; }
 
-        /* Navigaation tyylit valmiina */
         #nav-lista {
             list-style-type: none;
             padding: 0;
@@ -31,7 +30,6 @@
             background-color: #111;
         }
 
-        /* Tätä luokkaa sinun pitää käyttää JavaScriptissä */
         .active {
             background-color: #04AA6D !important;
         }
@@ -53,36 +51,38 @@
     </div>
 
     <script>
-        // 1. DATA: Määritellään navigaation linkit
+        // 1. DATA
         const sivut = [
             { nimi: "Etusivu", url: "navigaatio.html" },
             { nimi: "Tuotteet", url: "tuotteet.html" },
             { nimi: "Yhteystiedot", url: "yhteystiedot.html" }
         ];
 
-        // 2. APUMUUTTUJA: Haetaan nykyisen sivun tiedostonimi osoiteriviltä
-        // (Vastaa PHP:n basename($_SERVER['PHP_SELF']) -komentoa)
+        // 2. Mikä tiedosto on avoinna?
         const nykyinenSivu = window.location.pathname.split("/").pop();
 
-        // 3. HAE ELEMENTTI: Mihin navigaatio tulostetaan?
+        // 3. Kohde-elementti
         const navUl = document.getElementById("nav-lista");
 
-        // 4. SILMUKKA: Käy sivut-taulukko läpi
-         sivut.forEach(function(sivu) {
-           
-// --- KIRJOITA KOODISI TÄHÄN ALLE ---
-            
-            // A) Luo HTML-merkkijono tai elementit (<li><a href="...">...</a></li>)
-            //    Käytä sivu.nimi ja sivu.url -tietoja.
+        // 4. SILMUKKA
+        sivut.forEach(function(sivu) {
 
-            // B) LOGIIKKA: Tarkista onko tämä sivu aktiivinen.
-            //    EHTO: Jos (sivu.url === nykyinenSivu), niin...
-            //    ...lisää linkille luokka class="active"
+            // A) Luo elementit
+            const li = document.createElement("li");
+            const a = document.createElement("a");
 
-            // C) Lisää valmis palanen navUl-elementin sisään (innerHTML += ... tai appendChild)
+            a.href = sivu.url;
+            a.textContent = sivu.nimi;
 
+            // B) Onko tämä aktiivinen sivu?
+            if (sivu.url === nykyinenSivu) {
+                a.classList.add("active");
+            }
+
+            // C) Lisää elementit DOMiin
+            li.appendChild(a);
+            navUl.appendChild(li);
         });
-
     </script>
 
 </body>
