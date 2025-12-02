@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Palkkalaskuri</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .laskuri-container {
+            width: 350px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            background: #008cff;
+            border: none;
+            color: white;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #006fd6;
+        }
+
+        #tulosbox {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            display: none; /* piilotettu aluksi */
+        }
+
+        .virhe {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .rivi {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Palkkalaskuri</h1>
+
+    <div class="laskuri-container">
+
+        <label>Tuntipalkka (€)</label>
+        <input type="number" id="palkka" placeholder="Esim. 12.50">
+
+        <label>Tehdyt tunnit (h)</label>
+        <input type="number" id="tunnit" placeholder="Esim. 8">
+
+        <label>Veroprosentti (%)</label>
+        <input type="number" id="veroprosentti" placeholder="Esim. 20">
+
+        <button onclick="suoritaLaskenta()">Laske</button>
+
+        <p id="virheteksti" class="virhe"></p>
+
+        <div id="tulosbox">
+            <div class="rivi">Bruttopalkka: <span id="brutto"></span> €</div>
+            <div class="rivi">Vero: <span id="vero"></span> €</div>
+            <div class="rivi" id="nettorivi">Nettopalkka: <span id="netto"></span> €</div>
+        </div>
+
+    </div>
+
+<script>
+    function suoritaLaskenta() {
+
+        // 1. Hae elementit
+        const palkka = Number(document.getElementById("palkka").value);
+        const tunnit = Number(document.getElementById("tunnit").value);
+        const veroprosentti = Number(document.getElementById("veroprosentti").value);
+        const virheteksti = document.getElementById("virheteksti");
+        const tulosbox = document.getElementById("tulosbox");
+
+        // Tyhjennetään virheteksti
+        virheteksti.innerText = "";
+
+        // 3. Validointi
+        if (palkka <= 0 || tunnit <= 0 || veroprosentti < 0 || 
+            isNaN(palkka) || isNaN(tunnit) || isNaN(veroprosentti)) {
+
+            virheteksti.innerText = "Tarkista syöttämäsi tiedot.";
+            tulosbox.style.display = "none";
+            return;
+        }
+
+        // 4. Laskukaavat
+        const brutto = palkka * tunnit;
+        const vero = brutto * (veroprosentti / 100);
+        const netto = brutto - vero;
+
+        // 5. Päivitä HTML
+        document.getElementById("brutto").innerText = brutto.toFixed(2);
+        document.getElementById("vero").innerText = vero.toFixed(2);
+        document.getElementById("netto").innerText = netto.toFixed(2);
+
+        tulosbox.style.display = "block";
+
+        // 6. Nettopalkan väri ehtojen mukaan
+        const nettodiv = document.getElementById("nettorivi");
+
+        if (netto < 100) {
+            nettodiv.style.color = "orangered";
+        } else {
+            nettodiv.style.color = "green";
+        }
+    }
+</script>
+
+</body>
+</html>
