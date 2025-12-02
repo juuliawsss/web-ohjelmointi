@@ -9,7 +9,25 @@
     <ul id="numerolista"></ul>
 
     <script>
-        // Kirjoita koodisi tähän
+        // IF-LAUSE
+        let lampotila = 15; // voit muuttaa arvoa testataksesi
+
+        if (lampotila < 0) {
+            console.log("Pakkasta!");
+        } else if (lampotila >= 0 && lampotila <= 20) {
+            console.log("Sopiva ulkoilukeli.");
+        } else {
+            console.log("Hellettä!");
+        }
+
+        // FOR-SILMUKKA
+        const lista = document.getElementById("numerolista");
+
+        for (let i = 1; i <= 10; i++) {
+            const li = document.createElement("li");
+            li.textContent = "Numero " + i;
+            lista.appendChild(li);
+        }
     </script>
 </body>
 </html>
