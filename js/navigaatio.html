@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynaaminen menu</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+
+        /* Navigaation tyylit valmiina */
+        #nav-lista {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        #nav-lista li {
+            float: left;
+        }
+
+        #nav-lista li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        #nav-lista li a:hover {
+            background-color: #111;
+        }
+
+        /* Tätä luokkaa sinun pitää käyttää JavaScriptissä */
+        .active {
+            background-color: #04AA6D !important;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Verkkosivusto</h1>
+
+    <nav>
+        <ul id="nav-lista"></ul>
+    </nav>
+
+    <div style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;">
+        <h3>Sivun sisältö</h3>
+        <p>Tämä on esimerkki dynaamisesta navigaatiosta.</p>
+        <p>Huomaa: Jotta "active"-luokka toimii testatessa, varmista että
+           sivut-taulukon url-kohta vastaa tämän tiedoston nimeä (esim. navigaatio.html).</p>
+    </div>
+
+    <script>
+        // 1. DATA: Määritellään navigaation linkit
+        const sivut = [
+            { nimi: "Etusivu", url: "navigaatio.html" },
+            { nimi: "Tuotteet", url: "tuotteet.html" },
+            { nimi: "Yhteystiedot", url: "yhteystiedot.html" }
+        ];
+
+        // 2. APUMUUTTUJA: Haetaan nykyisen sivun tiedostonimi osoiteriviltä
+        // (Vastaa PHP:n basename($_SERVER['PHP_SELF']) -komentoa)
+        const nykyinenSivu = window.location.pathname.split("/").pop();
+
+        // 3. HAE ELEMENTTI: Mihin navigaatio tulostetaan?
+        const navUl = document.getElementById("nav-lista");
+
+        // 4. SILMUKKA: Käy sivut-taulukko läpi
+         sivut.forEach(function(sivu) {
+           
+// --- KIRJOITA KOODISI TÄHÄN ALLE ---
+            
+            // A) Luo HTML-merkkijono tai elementit (<li><a href="...">...</a></li>)
+            //    Käytä sivu.nimi ja sivu.url -tietoja.
+
+            // B) LOGIIKKA: Tarkista onko tämä sivu aktiivinen.
+            //    EHTO: Jos (sivu.url === nykyinenSivu), niin...
+            //    ...lisää linkille luokka class="active"
+
+            // C) Lisää valmis palanen navUl-elementin sisään (innerHTML += ... tai appendChild)
+
+        });
+
+    </script>
+
+</body>
+</html>
