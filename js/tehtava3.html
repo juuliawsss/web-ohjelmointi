@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Yksinkertainen laskin</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        input { padding: 5px; margin: 5px; }
+        button { padding: 5px 10px; cursor: pointer; }
+        #tulos { font-weight: bold; font-size: 1.2em; color: green; }
+    </style>
+</head>
+<body>
+
+    <h1>Yhteenlaskukone</h1>
+    <p>Syötä kaksi lukua, niin lasken ne yhteen.</p>
+
+    <label>Luku 1:</label>
+    <input type="number" id="luku1" placeholder="Syötä 1. luku">
+    <br>
+
+    <label>Luku 2:</label>
+    <input type="number" id="luku2" placeholder="Syötä 2. luku">
+    <br>
+
+    <button onclick="laskeSumma()">Laske summa</button>
+
+    <p>Tulos: <span id="tulos">-</span></p>
+
+    <script>
+        // TEHTÄVÄ: Kirjoita tähän funktio laskeSumma()
+        function laskeSumma() {
+            // 1. Hae elementit luku1 ja luku2
+            let luku1 = document.getElementById("luku1").value;
+            let luku2 = document.getElementById("luku2").value;
+
+            // 2. Muunna numeroksi
+            let num1 = Number(luku1);
+            let num2 = Number(luku2);
+
+            // 3. Laske summa
+            let summa = num1 + num2;
+
+            // 4. Tulosta tulos
+            document.getElementById("tulos").innerText = summa;
+        }
+    </script>
+
+</body>
+</html>
